@@ -8,16 +8,21 @@
    <h2>reactive</h2>
    <p>{{ninjaTwo.name}} - {{ninjaTwo.age}}</p>
    <button @click="updateNinjaTwo">updete Ninjs Two</button>
+   <p>{{nameS}}</p>
   </div>
 </template>
 
 <script>
 import { ref, reactive } from '@vue/reactivity'
+import { computed } from '@vue/runtime-core'
 
 
 export default {
   name: 'HomeView',
   setup(){
+    const nameS = computed(() =>{
+      return 'shun'
+    })
 console.log('setup')
 const p = ref(null)
 const name = ref( 'Mario')
@@ -35,7 +40,7 @@ const updateNinjaTwo = () => {
   ninjaTwo.age = 45
 }
 
-return{name: name, age: age, handleClick, p, ninjaTwo, updateNinjaTwo}
+return{name: name, age: age, handleClick, p, ninjaTwo, updateNinjaTwo, nameS}
   } 
 }
 </script>
